@@ -23,8 +23,8 @@ try:
     ExcelApp.Visible = True
 
     # Open the desired workbook
-    workbook = ExcelApp.Workbooks.Open(r'C:\Users\Callum Kynoch\Documents\01 University of Edinburgh\MEng Project - Digital Twins\04 ' \
-                      r'Experimental Data\example_2.xlsx')
+    workbook = ExcelApp.Workbooks.Open(r'C:\Users\Callum Kynoch\Documents\01 University of Edinburgh\MEng Project - '
+                                       r'Digital Twins\04 Experimental Data\example_2.xlsx')
 
     min_value_range1 = int(input("Enter the minimum value for Range 1: "))
     max_value_range1 = int(input("Enter the maximum value for Range 1: "))
