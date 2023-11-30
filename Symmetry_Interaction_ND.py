@@ -101,13 +101,10 @@ try:
             ExcelApp.Range(oil_flow_cell).Value = next_oilflow
 
             # Update values of variables in results array
-            # gasflow_list.append(gasflow_value)
             simulation_results[sim, 0] = gasflow_value
 
-            # oilflow_list.append(oilflow_value)
             simulation_results[sim, 1] = oilflow_value
 
-            # GOR_list.append(next_GOR)
             simulation_results[sim, 2] = GOR_value
 
             for i, variable in enumerate(import_variables):
