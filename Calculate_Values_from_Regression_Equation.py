@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from Example_2_Quadratic_Regression import perform_regression_and_plot
+from Perfrom_Regression_and_Plot import perform_regression_and_plot
 
 coefficients = perform_regression_and_plot()
 
