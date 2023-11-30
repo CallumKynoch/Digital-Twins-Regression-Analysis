@@ -22,13 +22,14 @@ try:
     ExcelApp.Visible = True
 
     # Open the desired workbook
-    workbook = ExcelApp.Workbooks.Open(r"C:\Users\Symmetry Machine\Documents\MEng Project\Digital Twins\compressor_test.xlsx")
+    workbook = ExcelApp.Workbooks.Open(r"C:\Users\Symmetry Machine\Documents\MEng Project\Digital "
+                                       r"Twins\compressor_test.xlsx")
 
     # Create a Normal Distribution for Gas Flow in MMSCFD
     gasflow_mean = int(input("Enter the Mean Gas Glow: "))
     gasflow_std_dev = int(input("Enter the Gas Flow's standard deviation: "))
 
-    # Create a Normal Distribution for Gas-Oil Ratio in Mbbl/d (12,000 bbl/d = 0.012 Mbbl/d)
+    # Create a Normal Distribution for Gas-Oil Ratio in bbl/d
     GOR_mean = int(input("Enter the Mean Gas-Oil Ratio: "))
     GOR_std_dev = int(input("Enter the Gas-Oil Ratio's standard deviation: "))
 
@@ -58,7 +59,7 @@ try:
     initial_GOR = np.random.normal(loc=GOR_mean, scale=GOR_std_dev)
 
     # Determine Oil Flow in bbl/d by dividing Gas Flow by GOR
-    initial_oilflow = (initial_gasflow / initial_GOR) * 10**6
+    initial_oilflow = (initial_gasflow / initial_GOR) * 10 ** 6
 
     ExcelApp.Range("B6").Value = initial_oilflow
 
@@ -86,14 +87,14 @@ try:
             # Read the current values of Gas Flow, GOR and Oil Flow
             gasflow_value = ExcelApp.Range(gas_flow_cell).Value
             oilflow_value = ExcelApp.Range(oil_flow_cell).Value
-            GOR_value = (gasflow_value / oilflow_value) * 10**6
+            GOR_value = (gasflow_value / oilflow_value) * 10 ** 6
 
             # Update previous reference value to current reference value
             prev_reference_value = ExcelApp.Range(reference_cell).Value
 
             # Randomly select a Gas Flow and GOR, and calculate Oil Flow
             next_gasflow_value = np.random.normal(loc=gasflow_mean, scale=gasflow_std_dev)
-            next_GOR = (np.random.normal(loc=GOR_mean, scale=GOR_std_dev)) / 10**6
+            next_GOR = (np.random.normal(loc=GOR_mean, scale=GOR_std_dev)) / 10 ** 6
             next_oilflow = next_gasflow_value / next_GOR
 
             ExcelApp.Range(gas_flow_cell).Value = next_gasflow_value
@@ -111,11 +112,11 @@ try:
 
             for i, variable in enumerate(import_variables):
                 cell = variable[1]
-                simulation_results[sim, i+3] = ExcelApp.Range(cell).Value
+                simulation_results[sim, i + 3] = ExcelApp.Range(cell).Value
 
             end = time.time()
 
-            print(f"SIMULATION {sim + 1} COMPLETED. Time taken: {end-start:.2f} s")
+            print(f"SIMULATION {sim + 1} COMPLETED. Time taken: {end - start:.2f} s")
 
         except Exception as e:
             print("Error while updating cells gas and oil flow:", e)
@@ -134,10 +135,7 @@ finally:
     except Exception as e:
         print("Error while releasing COM objects:", e)
 
-    headers = []
-    headers.append(export_variables[0][0])
-    headers.append(export_variables[1][0])
-    headers.append('GOR')
+    headers = [export_variables[0][0], export_variables[1][0], 'GOR']
     for i, variable in enumerate(import_variables):
         headers.append(variable[0])
 

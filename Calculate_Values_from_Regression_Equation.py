@@ -34,12 +34,12 @@ failures = 0
 for sim in tqdm(range(num_calculations), desc='Simulations', unit='sim'):
     predicted_GOR = np.random.normal(loc=predicted_GOR_mean, scale=predicted_GOR_std_dev)
     predicted_gasflow = np.random.normal(loc=predicted_gasflow_mean, scale=predicted_gasflow_std_dev)
-    predicted_oilflow = (predicted_gasflow / predicted_GOR) * 10**6
+    predicted_oilflow = (predicted_gasflow / predicted_GOR) * 10 ** 6
 
     # Use ** for exponentiation instead of ^
     predicted_duty = y_intercept + (predicted_gasflow * beta_1) + (predicted_oilflow * beta_2) + \
-                     (predicted_gasflow**2 * beta_3) + (predicted_oilflow**2 * beta_4) + \
-                     (predicted_gasflow**3 * beta_5) + (predicted_oilflow**3 * beta_6)
+                     (predicted_gasflow ** 2 * beta_3) + (predicted_oilflow ** 2 * beta_4) + \
+                     (predicted_gasflow ** 3 * beta_5) + (predicted_oilflow ** 3 * beta_6)
 
     # Append results to lists
     predicted_gasflows.append(predicted_gasflow)
