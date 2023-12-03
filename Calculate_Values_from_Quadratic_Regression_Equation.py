@@ -1,8 +1,8 @@
 import numpy as np
 from tqdm import tqdm
-from Perfrom_Regression_and_Plot import perform_regression_and_plot
+from Perfrom_Regression_and_Plot import perform_quadratic_regression_and_plot
 
-coefficients = perform_regression_and_plot()
+coefficients = perform_quadratic_regression_and_plot()
 
 y_intercept = coefficients[0]
 beta_1 = coefficients[1]
