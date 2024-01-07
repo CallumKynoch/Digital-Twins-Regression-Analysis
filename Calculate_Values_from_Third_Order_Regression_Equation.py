@@ -1,6 +1,9 @@
 import numpy as np
 from tqdm import tqdm
 from Perfrom_Regression_and_Plot import perform_third_order_regression_and_plot
+import matplotlib.pyplot as plt
+import sys
+from tkinter import filedialog as fd
 
 coefficients = perform_third_order_regression_and_plot()
 
@@ -37,6 +40,9 @@ predicted_capacity = []
 
 # Counter for failures
 failures = 0
+
+# Lists to store indices of failures exceeding total capacity
+indices_of_failures_exceeding_capacity = []
 
 # Use tqdm to create a progress bar
 for sim in tqdm(range(num_calculations), desc='Simulations', unit='sim'):
@@ -84,3 +90,42 @@ for sim in tqdm(range(num_calculations), desc='Simulations', unit='sim'):
 probability_of_failure = (failures / num_calculations) * 100
 
 print(f"Probability of Failure {probability_of_failure:.2f}%")
+
+create_outcrossing_graph = input('Would you like to create an outcrossing graph? Y or N: ')
+
+if create_outcrossing_graph.upper() == 'Y':
+    # Plot the predicted duty vs. number of simulations
+    plt.plot(range(1, num_calculations + 1), predicted_duties, label='Predicted Duty')
+
+    # Plot the total capacity line
+    total_capacity_line = predicted_capacity
+    plt.plot(range(1, num_calculations + 1), total_capacity_line, label='Total Capacity', linestyle='--')
+
+    # Highlight failures exceeding total capacity with red dots
+    plt.scatter(indices_of_failures_exceeding_capacity,
+                [predicted_duties[i] for i in indices_of_failures_exceeding_capacity],
+                color='red', marker='o', label='Exceed Total Capacity')
+
+    # Set labels and title
+    plt.xlabel('Number of Simulations')
+    plt.ylabel('Predicted Duty (MW)')
+
+    # Add major gridlines
+    plt.grid(True, linestyle='-', alpha=0.7)
+
+    # Add legend
+    plt.legend()
+
+    pth = fd.asksaveasfilename(
+        title='Choose a location to save the graph',
+        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital '
+                    r'Twins\Graphs\Outcrossing Graphs'),
+        filetypes=[('Picture', '.png')]
+    )
+    plt.savefig(pth, dpi=1200)
+
+    # Show the plot
+    plt.show()
+
+else:
+    sys.exit()

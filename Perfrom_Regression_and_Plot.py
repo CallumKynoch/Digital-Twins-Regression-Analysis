@@ -141,8 +141,8 @@ def perform_first_order_regression_and_plot():
 
     pth = fd.asksaveasfilename(
         title='Choose dir to save',
-        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital Twins'
-                    r'\Response Surfaces'),
+        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital '
+                    r'Twins\Graphs\Response Surfaces'),
         filetypes=[('Picture', '.png')]
     )
     plt.savefig(pth, dpi=1200)
@@ -309,8 +309,8 @@ def perform_second_order_regression_and_plot():
 
     pth = fd.asksaveasfilename(
         title='Choose dir to save',
-        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital Twins'
-                    r'\Response Surfaces'),
+        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital '
+                    r'Twins\Graphs\Response Surfaces'),
         filetypes=[('Picture', '.png')]
     )
     plt.savefig(pth, dpi=1200)
@@ -467,11 +467,11 @@ def perform_third_order_regression_and_plot():
 
     # Set the view to a specific angle
     # ax.view_init(elev=0, azim=90)
-    # filename1 = input('Choose name:\n>>>')
+
     pth = fd.asksaveasfilename(
         title='Choose dir to save',
-        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital Twins'
-                    r'\Response Surfaces'),
+        initialdir=(r'C:\Users\callk\Documents\02 University of Edinburgh\01 MEng Project\00 Digital '
+                    r'Twins\Graphs\Response Surfaces'),
         filetypes=[('Picture', '.png')]
     )
     plt.savefig(pth, dpi=1200)
