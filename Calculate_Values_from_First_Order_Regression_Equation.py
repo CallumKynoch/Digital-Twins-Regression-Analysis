@@ -5,13 +5,13 @@ from Perfrom_Regression_and_Plot import perform_first_order_regression_and_plot
 coefficients = perform_first_order_regression_and_plot()
 
 # β Coefficients from Regression
-y_intercept = coefficients[0]
-beta_1 = coefficients[1]
-beta_2 = coefficients[2]
-interaction_1 = coefficients[3]
+y_intercept = coefficients[0][0]
+beta_1 = coefficients[0][1]
+beta_2 = coefficients[0][2]
+interaction_1 = coefficients[0][3]
 
 # Initialise Normal Distributions
-predicted_gasflow_mean = float(input('Enter the Predicted Gas Flow Mean: '))
+predicted_gasflow_mean = float(input('Enter the Predicted Gas Flow Mean in MMSCFD: '))
 predicted_gasflow_std_dev = float(input('Enter the Standard Deviation of the Predicted Gas Flow: '))
 
 predicted_GOR_mean = float(input('Enter the Predicted Gas-oil Ratio Mean: '))
@@ -64,4 +64,4 @@ for sim in tqdm(range(num_calculations), desc='Simulations', unit='sim'):
 # Calculate the Probability of Failure
 probability_of_failure = (failures / num_calculations) * 100
 
-print(f"Probability of Failure {probability_of_failure:.2f}%")
+print(f"Probability of Failure: {probability_of_failure:.2f}%")

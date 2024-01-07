@@ -5,16 +5,16 @@ from Perfrom_Regression_and_Plot import perform_third_order_regression_and_plot
 coefficients = perform_third_order_regression_and_plot()
 
 # β Coefficients from Regression
-y_intercept = coefficients[0]
-beta_1 = coefficients[1]
-beta_2 = coefficients[2]
-beta_3 = coefficients[3]
-beta_4 = coefficients[4]
-beta_5 = coefficients[5]
-beta_6 = coefficients[6]
-interaction_1 = coefficients[7]
-interaction_2 = coefficients[8]
-interaction_3 = coefficients[9]
+y_intercept = coefficients[0][0]
+beta_1 = coefficients[0][1]
+beta_2 = coefficients[0][2]
+beta_3 = coefficients[0][3]
+beta_4 = coefficients[0][4]
+beta_5 = coefficients[0][5]
+beta_6 = coefficients[0][6]
+interaction_1 = coefficients[0][7]
+interaction_2 = coefficients[0][8]
+interaction_3 = coefficients[0][9]
 
 # Initialise Normal Distributions
 predicted_gasflow_mean = float(input('Enter the Predicted Gas Flow Mean in MMSCFD: '))

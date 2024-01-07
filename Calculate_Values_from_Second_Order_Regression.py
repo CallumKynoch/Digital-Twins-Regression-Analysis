@@ -5,12 +5,12 @@ from Perfrom_Regression_and_Plot import perform_second_order_regression_and_plot
 coefficients = perform_second_order_regression_and_plot()
 
 # β Coefficients from Regression
-y_intercept = coefficients[0]
-beta_1 = coefficients[1]
-beta_2 = coefficients[2]
-beta_3 = coefficients[3]
-beta_4 = coefficients[4]
-interaction_1 = coefficients[5]
+y_intercept = coefficients[0][0]
+beta_1 = coefficients[0][1]
+beta_2 = coefficients[0][2]
+beta_3 = coefficients[0][3]
+beta_4 = coefficients[0][4]
+interaction_1 = coefficients[0][5]
 
 # Initialise Normal Distributions
 predicted_gasflow_mean = float(input('Enter the Predicted Gas Flow Mean: '))
