@@ -65,5 +65,3 @@ for sim in tqdm(range(num_calculations), desc='Simulations', unit='sim'):
 probability_of_failure = (failures / num_calculations) * 100
 
 print(f"Probability of Failure {probability_of_failure:.2f}%")
-
-hello
