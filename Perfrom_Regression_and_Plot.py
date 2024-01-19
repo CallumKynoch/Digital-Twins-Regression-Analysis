@@ -120,7 +120,7 @@ def perform_first_order_regression_and_plot():
     ))
     props = dict(boxstyle='round', facecolor='white', edgecolor='lightgray', alpha=1)
 
-    ax.text(x=0, y=80, z=160, s=textstr, transform=ax.transAxes, fontsize=11,
+    ax.text(x=0, y=80, z=25, s=textstr, transform=ax.transAxes, fontsize=11,
             verticalalignment='top', bbox=props)
 
     # Adjust y-axis labels
@@ -288,7 +288,7 @@ def perform_second_order_regression_and_plot():
     ))
     props = dict(boxstyle='round', facecolor='white', edgecolor='lightgray', alpha=1)
 
-    ax.text(x=0, y=80, z=160, s=textstr, transform=ax.transAxes, fontsize=11,
+    ax.text(x=0, y=80, z=25, s=textstr, transform=ax.transAxes, fontsize=11,
             verticalalignment='top', bbox=props)
 
     # Adjust y-axis labels
@@ -449,7 +449,7 @@ def perform_third_order_regression_and_plot():
     ))
     props = dict(boxstyle='round', facecolor='white', edgecolor='lightgray', alpha=1)
 
-    ax.text(x=0, y=80, z=245, s=textstr, transform=ax.transAxes, fontsize=11,
+    ax.text(x=0, y=80, z=27, s=textstr, transform=ax.transAxes, fontsize=11,
             verticalalignment='top', bbox=props)
 
     # Adjust y-axis labels
